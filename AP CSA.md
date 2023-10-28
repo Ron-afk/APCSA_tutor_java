@@ -13,6 +13,10 @@
     - [for loop -- for循环](#ch_3.2)
     - [while loop -- while循环](#ch_3.3)
     - [break -- 中断 与 continue -- 继续](#ch_3.4)
+    - [switch condition](#ch_3.5)
+- [Class -- 类](#ch_4)
+    - [Class与Class的组成](#ch_4.1)
+    - [Class的调用](#ch_4.2)
 
 
 
@@ -383,10 +387,30 @@ for(int j = 0; j < 10 ; j++){
 ```
 使用`break`和`continue`我们就能对代码在loop中的运行有更多的控制。
 
+## <a id="ch_3.5">switch condition</a>
+类似于if condition，在多个情况并列的情况下我们可以使用switch进行多种情况的跳转。
+```java
+public void demo(int a){
+    switch(a){
+        case 1:
+            System.out.println("case 1");
+            break;
+        case 2:
+            System.out.println("case 2");
+            break;
+        case 20:
+            System.out.println("case 3");
+            break;
+    }
+}
+```
+在switch中，condition被限制为一个variable，并且需要为primitive type。
+通过使用break，我们在一种情况结束时结束condition的判断。
+现在尝试删除一些break，看一眼输出结果和你的预期是否有区别，为什么？
 
 # <a id="ch_4">Class -- 类</a>
 ## <a id="ch_4.1">Class与Class的组成</a>
-在Object Oriented Pgramming（面向对象编程）的过程中，Class是最基本的概念元素。在Java中，Class可以作为实体、概念、或过程的抽象话表示。比如，在程序中，我们想要用数据及其相关处理办法表示某一种事实上存在某个物体的概念，如学生。那么首先我们需要考虑的是是否需要某些与实体相关的数据需要被储存，如学生号，年级，姓名等，然后就是根据需要面对与学生可能会进行的动作进行定义，最后我们需要一个最基本的方法来创建一个新的学生实体（instance）。这些东西全部集合在一起就组成了一个类的基础结构。
+在Object Oriented Pgramming（面向对象编程）的过程中，Class是最基本的概念元素。在Java中，Class可以作为实体、概念、或过程的抽象化表示。比如，在程序中，我们想要用数据及其相关处理办法表示某一种事实上存在某个物体的概念，如学生。那么首先我们需要考虑的是是否需要某些与实体相关的数据需要被储存，如学生号，年级，姓名等，然后就是根据需要面对与学生可能会进行的动作进行定义，最后我们需要一个最基本的方法来创建一个新的学生实体（instance）。这些东西全部集合在一起就组成了一个类的基础结构。
 
 现在我们用刚刚的学生来举例，如果我们现在想要创建一个学生的Class， 其中需要储存学生的姓名，学号，年级，性别这四种信息。对于学生，我们需要能够更改相关的信息。以下就是我们如何创建一个学生：
 ```java
@@ -417,4 +441,43 @@ public class Student {
 }
 ```
 
+### <a>Class Attributes</a>
+在Java中，与当前类相关的数据及其他类都被储存在Class Attributes（field）中。 在上面的例子中，与学生相关的信息所在的位置就是这个学生类的Attributes。
+需要注意的是，在Attributes中，我们可以只声明，不赋值。这里声明的量可以被视作整个class中的全局变量，当然，这个全局变量，并非真正的全局变量，Global value。在整个Class中的任意位置都可以对Attributes进行调用。虽然我们不允许使用相同名称的变量（variable），但是我们可以在method中使用与attributes命名相同的parameter，因此有时需要使用`this`来表明调用值为Attributes中的变量，而非Parameter。
+### <a>Constructor</a>
+仔细看我们的代码，会发现我们有一个没有return type的Method。这部分为Constructor。Constructor可以用来创建一个当前这个类的实体（instance）。我们需要分清class与instance之间的区别。class可以视作一种属性，代表了这个物品的数据和它能够调用的方法。而instance则是在运行后被创建的实体，它会在计算机的储存空间中占用一定的内存。通常我们会给实体一个名字，就是variable name。关于constructor的使用，我们会在下面class的调用中讲到。
+### <a>Method(s)</a>
+在一个class之内，我们我可定义很多与这个class相关的method。
+既我们之前在学习的内容。
 ## <a id="ch_4.2">Class的调用</a>
+我们可以使用已定义的class来创建一个新的实体。如同我们之前variable赋值过程一样，只不过，对于任何一个非primative type的类型，我们需要使用`new`关键词。
+例如：
+```java
+Student s1 = new Student("tim", "tom");
+```
+这里我们如同使用其他method一样，对constructor进行调用，并且传入所需的parameter。
+成功创建一个实例之后，我们就可以使用这个实例所属的class中所含有的method。通过这些method，我们对当前实例进行更改，运算。
+```java
+s1.setStuId(123456);
+s1.setGrade(11);
+s1.setGender("M");
+```
+同时，如果class定义中的attributes为public类型，我们也可以直接进行访问，调用，更改。
+```java
+System.out.println(s1.stuId);
+s1.grade=12;
+System.out.println(grade);
+```
+因为pulibc类型的attributes可以被任意访问，而我们多数时候不希望使用者可以随意更改这些数值，所以大多数时候，我们都会将attributes设置为private，然后通过get&set methods去进行调用及更改。
+
+除了我们自己定义的class外，java自身也有许多的library供我们使用。
+我们最常见的就是ArrayList了，这个class是java提供给我们，已创建一个list。
+我们也会随着使用，逐渐加深对ArrayList的理解。
+```java
+ArrayList<Student> list = new ArrayList();
+list.add(s1) 
+```
+
+对于调用的class，我们并不需要知道他们内部是如何定义运行的，我们只需要知道它会按照它的描述去运行即可。这也是编程中一个重要的概念，abstract。
+现在我们已经算是掌握了最基础的知识，我们接下来会练习不同的内容，以加强掌握。
+在使用class的时候，也需要思考，当前我们已知的class的使用方法是否有不方便的地方？

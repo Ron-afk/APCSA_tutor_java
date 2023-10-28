@@ -12,6 +12,7 @@
     - [if条件语句](#ch_3.1)
     - [for loop -- for循环](#ch_3.2)
     - [while loop -- while循环](#ch_3.3)
+    - [break -- 中断 与 continue -- 继续](#ch_3.4)
 
 
 
@@ -150,7 +151,7 @@ hex 表示16进制，由0~F构成
 | 15 | 1111 | f |
 
 ## <a id="ch_2.3">Class —— 类</a>
-Class是Java的核心。在Java中，各种概念都被抽象成为Class，这些概念包括实体和过程，关于Class的所有有效操作都会被在Class内部中定义,相关的数据定义也会储存在Class的定义中，当我们创建一个实体的时候，相关的数据就会被储存在所创建的实体中。关于Class的更多内容会在下一个章节中进行讲解。目前，我们需要知道的是类似于Primitive Type，类的名称也可以作为变量的数据类型。
+Class是Java的核心。在Java中，各种概念都被抽象成为Class，这些概念包括实体和过程，关于Class的所有有效操作都会被在Class内部中定义,相关的数据定义也会储存在Class的定义中，当我们创建一个实体的时候，相关的数据就会被储存在所创建的实体中。关于Class的更多内容会在下一个章节中进行讲解。目前，我们需要知道的是类似于Primitive Type，类的名称也可以作为变量的数据类型。后面在第四个章节<a href="#ch_4">Class -- 类</a>中，我们会更加深入学习关于Class的内容。
 
 ## <a id="ch_2.4">variable — 变量</a>
 
@@ -380,5 +381,40 @@ for(int j = 0; j < 10 ; j++){
 }
 
 ```
-
 使用`break`和`continue`我们就能对代码在loop中的运行有更多的控制。
+
+
+# <a id="ch_4">Class -- 类</a>
+## <a id="ch_4.1">Class与Class的组成</a>
+在Object Oriented Pgramming（面向对象编程）的过程中，Class是最基本的概念元素。在Java中，Class可以作为实体、概念、或过程的抽象话表示。比如，在程序中，我们想要用数据及其相关处理办法表示某一种事实上存在某个物体的概念，如学生。那么首先我们需要考虑的是是否需要某些与实体相关的数据需要被储存，如学生号，年级，姓名等，然后就是根据需要面对与学生可能会进行的动作进行定义，最后我们需要一个最基本的方法来创建一个新的学生实体（instance）。这些东西全部集合在一起就组成了一个类的基础结构。
+
+现在我们用刚刚的学生来举例，如果我们现在想要创建一个学生的Class， 其中需要储存学生的姓名，学号，年级，性别这四种信息。对于学生，我们需要能够更改相关的信息。以下就是我们如何创建一个学生：
+```java
+public class Student {
+    // field to define data type and variable name to store related data
+    public int stuID;
+    public String lastName;
+    public String firsName;
+    public int grade;
+    public String gender;
+    
+    // constructor
+    public Student(String lastName, String firstName){
+        this.firsName = firstName;
+        this.lastName = lastName;
+    }
+    
+    // Methods
+    public void setStuID(int stuID){
+        this.stuID = stuID;
+    }
+    public void setGrade(int grade){
+        this.grade = grade;
+    }
+    public void setGender(String gender){
+        this.gender = gender;
+    }
+}
+```
+
+## <a id="ch_4.2">Class的调用</a>

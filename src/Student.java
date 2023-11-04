@@ -1,10 +1,10 @@
 public class Student {
     // field to define data type and variable name to store related data
-    public int stuID;
-    public String lastName;
-    public String firsName;
-    public int grade;
-    public String gender;
+    private int stuID;
+    private String lastName;
+    private String firsName;
+    private int grade;
+    private String gender;
 
     // constructor
     public Student(String lastName, String firstName){
@@ -23,4 +23,11 @@ public class Student {
         this.gender = gender;
     }
 
+    public String getGender(){
+        return this.gender;
+    }
+
+    public int getGrade(){
+        return this.grade;
+    }
 }

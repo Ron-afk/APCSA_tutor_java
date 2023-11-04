@@ -2,15 +2,20 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Student s1 = new Student("tim","tom");
-        Student s2 = s1;
-        s1.setGrade(10);
-        System.out.println(s2.getGrade());
-
-        int a =10;
-        int b = a;
-        a=20;
-        System.out.println(b);
+//        Student s1 = new Student("tim","tom");
+//        Student s2 = s1;
+//        s1.setGrade(10);
+//        System.out.println(s2.getGrade());
+//
+//        int a =10;
+//        int b = a;
+//        a=20;
+//        System.out.println(b);
+        String[] wordArray = {"wheels", "on", "the", "bus"};
+        RandomStringChooser sChooer = new RandomStringChooser(wordArray);
+        for(int i = 0; i< 6; i++){
+            System.out.println(sChooer.getNext());
+        }
     }
 
 

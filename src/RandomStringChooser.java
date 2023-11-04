@@ -5,6 +5,7 @@ public class RandomStringChooser {
 
     public RandomStringChooser(String[] wordList){
         String[] wordList1 = wordList;
+        this.wordList = new ArrayList<>();
         for(String s : wordList){
             this.wordList.add(s);
         }

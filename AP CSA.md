@@ -17,7 +17,7 @@
 - [Class -- 类](#ch_4)
     - [Class与Class的组成](#ch_4.1)
     - [Class的调用](#ch_4.2)
-
+- [类的继承与多态 (inheritance and polymorphism)](#ch_5)
 
 
 # 安装IDE
@@ -481,3 +481,25 @@ list.add(s1)
 对于调用的class，我们并不需要知道他们内部是如何定义运行的，我们只需要知道它会按照它的描述去运行即可。这也是编程中一个重要的概念，abstract。
 现在我们已经算是掌握了最基础的知识，我们接下来会练习不同的内容，以加强掌握。
 在使用class的时候，也需要思考，当前我们已知的class的使用方法是否有不方便的地方？
+
+# <a id="ch_5">类的继承与多态 (inheritance and polymorphism)</a>
+对于类，我们除了它自身之外，还可以通过继承的方式，丰富一个类的功能，或创建其子类。不同的语言中类的继承会有不同的区别。比如C#中允许定义partial class以达到在不同位置添加class功能的作用。
+
+在java中，类的继承主要分为两种，interface与abstract。这两者在使用方法与应用场景上有较大的区别， 我们会在下面的内容中进行详细的解释。
+## <a id="ch_5.1">类的继承的基础概念</a>
+### <a id="dic_super">父类与子类 superclass and subclass</a>
+首先我们需要明确的是在继承中发生了什么。
+
+类的继承可以理解为为一个父类(supperclass)创建与其有从属关系的子类(subclass)。父类中的所有内容，都会被继承到子类中。即父类中的所有method，field都被视作在子类中存在。
+
+需要注意的是，子类作为父类的继承，他们虽然在method上可能有相同的naming，但是其内部计算逻辑可能有巨大的不同，从而导致对相同数据的操作，会因子类与父类的区别而得出不同的结果。
+
+更加重要的一点是，当我们创建instance的时候，我们可以将一个子类的实体分给一个父类的variable。但是反过来却不行，不能将一个父类实体分配给一个子类variable。
+
+### <a id="dic_hierarchy">Inheritance Hierarchy</a>
+
+![hierarchy.png](AP_CSA/hierarchy.png)
+以上图片展示类一个简单的类继承结构，Student 和Employee是person的子类，GradStudent和UnderGrad是Student的子类。
+
+因此，对于整个结构而言，最简单，最基础的class就是我们的person class。每一个subclass都会有person所拥有的属性。
+同时，这张图也很好的解释父类与子类之间的关系，即通常在概念上，父类都会包括子类，子类是父类的更精细分类，同时会有更多的操作。

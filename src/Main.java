@@ -11,11 +11,24 @@ public class Main {
 //        int b = a;
 //        a=20;
 //        System.out.println(b);
-        String[] wordArray = {"wheels", "on", "the", "bus"};
-        RandomStringChooser sChooer = new RandomStringChooser(wordArray);
-        for(int i = 0; i< 6; i++){
-            System.out.println(sChooer.getNext());
-        }
+//        String[] wordArray = {"wheels", "on", "the", "bus"};
+//        RandomStringChooser sChooer = new RandomStringChooser(wordArray);
+//        for(int i = 0; i< 6; i++){
+//            System.out.println(sChooer.getNext());
+//        }
+//        System.out.println(3.0 == 0*(3.0/0)?"true":"false");
+//        System.out.println(9*(3.0/9));
+
+//        System.out.println(1 * 2);
+//
+//        if(true)
+//            System.out.printf("hello");
+//        System.out.println();
+
+        for(int i =0;i<10;i++)
+            for(int j = 0; j<10;j++)
+                System.out.print(i+j);
+                System.out.print(i);
     }
 
 
